@@ -1,0 +1,333 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* SECTION JAUNE (Conteneur principal/Bannière) */
+.section-yellow {
+    width: 100%;
+    /* Utilisation de min-height pour s'assurer que le contenu est visible, mais le laisser s'étendre si nécessaire */
+    min-height: 845px; 
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    background-image: url('images/accueil.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* SECTION VERTE (Barre de navigation - HEADER) */
+.section-green {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: row; /* Par défaut : ligne */
+    position: relative;
+    z-index: 1;
+    min-height: 60px; /* Ajout d'une hauteur minimale pour la visibilité */
+    align-items: center;
+}
+
+/* Éléments de navigation : UTILISATION DE FLEX-GROW */
+/* Ils vont s'adapter pour remplir la largeur restante */
+
+.section-red {
+    flex-grow: 2;
+    height: 100%;
+    background-color: transparent;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-weight: 900;
+    font-size: 32px;
+    letter-spacing: 4px; /* espacement typique d’un logo automobile */
+    text-transform: uppercase;
+    font-family: 'Orbitron', sans-serif;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.3),
+                 0 0 16px rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* Effet au survol du logo */
+.section-red:hover {
+    transform: scale(1.2);
+    color: #ffcc00;
+    text-shadow: 0 0 12px rgba(255, 204, 0, 0.8),
+                 0 0 24px rgba(255, 204, 0, 0.6);
+}
+
+/* Effet clic (pression) */
+.section-red:active {
+    transform: scale(0.95);
+    filter: brightness(0.8);
+}
+
+
+.section-violet,
+.section-maroon,
+.section-orange {
+    /* Les liens de navigation prennent une part égale de l'espace restant */
+    flex-grow: 1;
+    height: 100%;
+    background-color: transparent;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    /* Retrait de width: 350px */
+    white-space: nowrap; /* Empêche les mots comme 'A PROPOS' de se couper sur deux lignes */
+}
+
+/* --- MEDIA QUERY POUR MOBILE (Écrans < 768px) --- */
+@media (max-width: 768px) {
+    .section-green {
+        /* Empile les éléments de navigation verticalement */
+        flex-direction: column; 
+        height: auto; /* La hauteur s'adapte au contenu empilé */
+    }
+
+    .section-red {
+        flex-grow: 0; /* Désactive la croissance sur mobile */
+        width: 100%;
+        height: 60px; /* Donne une hauteur fixe au logo */
+    }
+
+    /* Cache l'espace vide non nécessaire sur mobile */
+    .section-red-bis {
+        display: none; 
+    }
+
+    .section-violet,
+    .section-maroon,
+    .section-orange {
+        flex-grow: 0; /* Désactive la croissance sur mobile */
+        width: 100%;
+        height: 50px; /* Donne une hauteur pour chaque lien */
+        font-size: 16px;
+        /* Optionnel : pour différencier les liens */
+        /* background-color: rgba(0, 0, 0, 0.5); */ 
+    }
+}
+
+/* SECTION ROSE (Contenu sous la navigation) */
+.section-pink {
+    width: 100%;
+    /* Utilisation de flex-grow: 1 pour qu'il prenne l'espace vertical restant */
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    position: relative;
+    z-index: 1;
+    /* Retrait de height: 90% qui causait des problèmes avec la nouvelle hauteur flexible du .section-yellow */
+}
+
+.section-gray {
+    display: flex;
+    flex-direction: column; /* ✅ chaque ligne empilée verticalement */
+    align-items: flex-start; /* Aligne le texte à gauche */
+    justify-content: flex-start;
+    padding-left: 160px;
+    padding-top: 180px;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: bold;
+    font-size: 72px; 
+    line-height: 1.1;
+    font-family: 'Arial Black', Gadget, sans-serif;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.section-gray .line {
+    display: block; /* ✅ chaque ligne est un bloc à part */
+}
+
+.section-gray .letter {
+    display: inline-block;
+    transition: transform 0.2s ease-out, color 0.2s ease-out, text-shadow 0.2s ease-out;
+}
+
+.section-gray .letter:hover {
+    transform: scale(1.2);
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+
+.section-yellow-pink {
+    width: 100%;
+    flex-grow: 1;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column; /* ✅ pour empiler les lignes */
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-top: 100px;
+    padding-left: 160px;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 200px;
+    font-size: 25px; /* un peu plus petit que .section-gray */
+    line-height: 1.3;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+    font-family: 'Arial Black', Gadget, sans-serif;
+}
+
+.section-yellow-pink .line {
+    display: block;
+}
+
+.section-yellow-pink .letter {
+    display: inline-block;
+    transition: transform 0.2s ease-out, color 0.2s ease-out, text-shadow 0.2s ease-out;
+}
+
+.section-yellow-pink .letter:hover {
+    transform: scale(1.2);
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+
+/* SECTION BLEUE (Slider défilant) */
+.section-blue {
+    width: 100%;
+    height: 100px;
+    background-color: rgb(155, 15, 15);
+    overflow: hidden;
+    position: relative;
+}
+
+.slider-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.slider-track {
+    display: flex;
+    /* Le width: fit-content est correct, mais assurez-vous que toutes les images sont incluses dans le calcul de l'animation */
+    width: fit-content; 
+    height: 100%;
+    animation: scroll 25s linear infinite;
+    align-items: center;
+}
+
+.slider-image {
+    height: 90%;
+    width: auto;
+    object-fit: cover;
+    flex-shrink: 0;
+    margin-right: 20px;
+}
+
+
+/* Effets interactifs sur les boutons du menu */
+.section-red,
+.section-violet,
+.section-maroon,
+.section-orange {
+    cursor: pointer; /* curseur main */
+    transition: all 0.25s ease; /* animation fluide */
+}
+
+/* Effet au survol */
+.section-red:hover,
+.section-violet:hover,
+.section-maroon:hover,
+.section-orange:hover {
+    transform: scale(1.15); /* grossit */
+    color: #ffd220; /* couleur du texte changée */
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8); /* ombre plus marquée */
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.4)); /* halo léger */
+}
+
+/* Effet au clic (impression d’enfoncement) */
+.section-red:active,
+.section-violet:active,
+.section-maroon:active,
+.section-orange:active {
+    transform: scale(0.95); /* rétrécit légèrement (bouton enfoncé) */
+    filter: brightness(0.8); /* assombrit un peu */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 1); /* ombre plus profonde */
+}
+
+/* Le conteneur global peut déborder sans couper les images */
+.section-blue {
+    position: relative;
+    z-index: 1;
+    perspective: 800px; /* effet de profondeur */
+    overflow: visible; /* ⚡ très important pour autoriser les débordements */
+}
+
+/* Le conteneur de la piste aussi doit permettre le débordement */
+.slider-container,
+.slider-track {
+    overflow: visible; /* aucune coupure des images */
+}
+
+/* On ajoute juste ça pour s'assurer que les images soient bien en ligne */
+.slider-track {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    will-change: transform;
+}
+
+/* Images du slider */
+.slider-image {
+    height: 90%;
+    width: auto;
+    object-fit: cover;
+    flex-shrink: 0;
+    margin-right: 20px;
+    transition: transform 0.5s ease, filter 0.3s ease, box-shadow 0.3s ease;
+    will-change: transform;
+    transform-origin: center center;
+    backface-visibility: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+/* Effet de survol : zoom, relief 3D, dépassement libre */
+.slider-image:hover {
+    transform: scale(1.5) translateY(-20px) rotateY(12deg) rotateX(5deg);
+    z-index: 100; /* passe au-dessus de tout le reste */
+    filter: brightness(1.2) contrast(1.1) saturate(1.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+}
+
+/* Retour à l'état normal quand la souris part */
+.slider-image:not(:hover) {
+    transform: scale(1) rotateY(0deg) rotateX(0deg) translateY(0);
+    z-index: 1;
+    filter: brightness(1) contrast(1);
+    box-shadow: none;
+}
+
+
+/* Animation : Assurez-vous que le pourcentage de translation correspond exactement à la largeur totale d'un set d'images */
+/* Puisque vous avez dupliqué 5 images (10 images au total), -50% est généralement correct pour le scroll infini. */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
