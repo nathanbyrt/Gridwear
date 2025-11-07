@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
     populateTrack();
 
     // Paramètres d'animation
-    const speed = ; // pixels par frame (ajuste selon besoin)
+    const speed = 0.1; // pixels par frame (ajuste selon besoin)
     let position = 0;
 
     function step() {
@@ -121,3 +121,4 @@ document.addEventListener('DOMContentLoaded', () => {
     step();
 
 });
+
