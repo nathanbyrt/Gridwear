@@ -1,0 +1,515 @@
+/* ================================
+   GLOBAL
+   ================================ */
+.regle-container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 120px auto 60px auto;
+    font-family: "Inter", sans-serif;
+}
+
+.page-title {
+    text-align: center;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 45px;
+}
+
+/* ================================
+   BLOCS RÈGLES - style comme services
+   ================================ */
+.regle-block {
+    background: #f9f9f9;
+    padding: 30px 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border-left: 5px solid #111; /* effet bloc services */
+}
+
+.regle-block:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.regle-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #111;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.regle-title::after {
+    content: "+";
+    font-size: 1.5rem;
+    font-weight: 700;
+    transition: transform 0.3s ease;
+}
+
+/* ================================
+   CONTENU DES BLOCS
+   ================================ */
+.regle-content {
+    display: none;
+    margin-top: 15px;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #444;
+}
+
+.regle-block.active .regle-content {
+    display: block;
+}
+
+.regle-block.active .regle-title::after {
+    content: "−"; /* signe moins quand ouvert */
+    transform: rotate(180deg);
+}
+
+/* ================================
+   LIENS ET LISTES DANS LES BLOCS
+   ================================ */
+.regle-content a {
+    color: #111;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.regle-content a:hover {
+    color: #555;
+}
+
+.regle-content ul {
+    margin-left: 20px;
+    list-style: disc;
+}
+
+.regle-content strong {
+    color: #111;
+}
+
+.glossaire-wrapper {
+    display: flex;
+    gap: 20px;
+}
+
+.glossaire-mots {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.glossaire-mots span {
+    cursor: pointer;
+    color: #111;
+    font-weight: 500;
+}
+
+.definition-zone {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    background-color: #c5c5c5;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+}
+
+.definition-zone p {
+    margin: 0;
+    display: none; 
+    font-weight: 500;
+    color: #111;
+}
+
+/* ================================
+   RESPONSIVE
+   ================================ */
+@media (max-width: 768px) {
+    .regle-title {
+        font-size: 1.6rem;
+    }
+
+    .regle-content {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .regle-container {
+        width: 95%;
+        margin: 100px auto 40px auto;
+    }
+
+    .regle-title {
+        font-size: 1.5rem;
+    }
+}
+
+/* ======================================================= */
+/* ====== Styles pour le Panier et les Modales de Commande ====== */
+/* ======================================================= */
+
+/* --- 1. Badge du Panier dans le Header --- */
+#cart-count {
+    position: absolute;
+    top: -5px; 
+    right: -10px; 
+    background-color: #ff4500; 
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    min-width: 20px;
+    text-align: center;
+    line-height: 1.2;
+    font-weight: bold;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    z-index: 99; /* Assure que le badge est au-dessus de l'icône */
+}
+
+/* --- 2. Styles Généraux des Modales --- */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000; /* Au-dessus de tous les autres éléments */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.7); 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.modal-content {
+    background: #fff;
+    border-radius: 10px;
+    width: 1200px;   
+    min-width: 1200px;
+    max-width: 1200px;
+    height: 600px;  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 20px;
+    box-sizing: border-box;
+    margin: auto; 
+}
+
+@keyframes slideDown {
+    from {transform: translateY(-50px); opacity: 0;}
+    to {transform: translateY(0); opacity: 1;}
+}
+
+.close-btn {
+    color: #aaa;
+    font-size: 30px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #333;
+}
+
+/* --- 3. Style du Contenu du Panier --- */
+#cart-items-container {
+    max-height: 350px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    padding-right: 10px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item-img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    margin-right: 15px;
+    border-radius: 4px;
+}
+
+.item-details {
+    flex-grow: 1;
+}
+
+.item-details h4 {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.item-details p {
+    margin: 2px 0;
+    font-size: 13px;
+    color: #777;
+}
+
+.item-quantity-input {
+    width: 45px;
+    text-align: center;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.item-price-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-left: 10px;
+}
+
+.item-price {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #000;
+}
+
+.remove-item-btn {
+    background: none;
+    border: none;
+    color: #ff4500;
+    font-size: 20px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+#cart-summary {
+    text-align: right;
+    padding-top: 15px;
+    border-top: 2px solid #333;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#cart-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.empty-cart-message {
+    text-align: center;
+    padding: 30px;
+    color: #777;
+    font-style: italic;
+}
+
+/* --- 4. Styles des Formulaires de Commande --- */
+#delivery-form input,
+#payment-form input,
+#payment-form select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box; /* Important pour que le padding n'augmente pas la taille totale */
+}
+
+.payment-fields {
+    margin-top: 15px;
+    padding: 10px;
+    border: 1px dashed #ccc;
+    border-radius: 4px;
+}
+
+.total-final {
+    font-size: 18px;
+    margin-top: 20px;
+    text-align: right;
+}
+
+/* Boutons */
+.button {
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.primary-button {
+    background-color: #333;
+    color: white;
+    border: none;
+}
+
+.primary-button:hover:not(:disabled) {
+    background-color: #000;
+}
+
+.primary-button:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+}
+
+.secondary-button {
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ccc;
+}
+
+.secondary-button:hover:not(:disabled) {
+    background-color: #e0e0e0;
+}
+
+/* ======================================================= */
+/* ====== RESPONSIVE DESIGN POUR SMARTPHONES ET PETITS ÉCRANS ====== */
+/* ======================================================= */
+@media screen and (max-width: 1400px) {
+    /* --- GLOBAL --- */
+    .regle-container {
+        width: 95%;
+        margin: 80px auto 40px auto;
+    }
+    .page-title {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+
+    /* --- BLOCS RÈGLES --- */
+    .regle-block {
+        padding: 20px 15px;
+        margin-bottom: 15px;
+    }
+    .regle-title {
+        font-size: 1.4rem;
+        margin-bottom: 8px;
+    }
+    .regle-content {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+    .regle-content ul {
+        margin-left: 15px;
+    }
+    .regle-content li {
+        margin-bottom: 8px;
+    }
+
+    /* --- FOOTER --- */
+    .footer-top {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .footer-column {
+        text-align: center;
+    }
+    .footer-column h3 {
+        font-size: 20px;
+    }
+    .social-icons {
+        justify-content: center;
+    }
+    .icon {
+        width: 28px;
+        height: 28px;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    .payment-logos {
+        justify-content: center;
+    }
+    .pay-icon {
+        width: 30px;
+        height: 30px;
+    }
+    .legal-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .legal-links a {
+        font-size: 12px;
+        margin: 0 5px;
+    }
+
+    /* --- MODALES (Panier, Livraison, Paiement) --- */
+    .modal-content {
+        width: 95% !important;
+        min-width: auto !important;
+        max-width: none !important;
+        height: auto !important;
+        margin: 10px;
+        padding: 15px;
+    }
+    #cart-items-container {
+        max-height: 250px;
+    }
+    .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .cart-item-img {
+        width: 70px;
+        height: 70px;
+    }
+    .item-details h4 {
+        font-size: 14px;
+    }
+    .item-details p {
+        font-size: 12px;
+    }
+    #cart-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+    #cart-actions button {
+        width: 100%;
+    }
+    #delivery-form input,
+    #payment-form input,
+    #payment-form select {
+        padding: 8px;
+        font-size: 14px;
+    }
+    #payment-actions {
+        flex-direction: column;
+    }
+    #payment-actions button {
+        width: 100%;
+    }
+    .total-final {
+        font-size: 16px;
+    }
+    .close-btn {
+        top: 5px;
+        right: 10px;
+        font-size: 24px;
+    }
+}

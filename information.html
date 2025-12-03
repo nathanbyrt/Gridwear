@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez les nouveautés Gridwear : vetements, accessoires et bien plus encore. Faites-vous plaisir avec les nouveauté et les exclusivités.">
+    <meta name="keywords" content="Gridwear, accessoires, nouveautés, vetements, mode, boutique en ligne, vêtements futuristes, panier, paiement sécurisé, automobile, sport">
+    <meta name="author" content="Emma Stella Ntsame Ayoo Obame, Marc, Pierre">
+    <meta property="og:title" content="Gridwear">
+    <meta property="og:description" content="Parcourez les derniers accessoires et vetements Gridwear et explorez nos produits.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/accueil/logo/gridwear.jpg">
+    <meta property="og:url" content="information.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Informations - Gridwear">
+    <meta name="twitter:description" content="Découvrez notre collection de vetements et d'acessoires uniques.">
+    <meta name="twitter:image" content="images/accueil/logo/gridwear.jpg">
+    <title>Informations - Gridwear</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="information.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ====== HEADER ====== --> 
+    <header class="header sticky">
+        <div class="logo" onclick="window.location.href='index.html'">GRIDWEAR</div>
+        <nav class="nav">
+            <div class="nav-item" onclick="window.location.href='nouveaute.html'">Nouveautés</div>
+            <div class="nav-item" onclick="window.location.href='vetement.html'">Vêtements</div>
+            <div class="nav-item" onclick="window.location.href='accessoire.html'">Accessoires</div>
+        </nav>
+        <div class="header-icons">
+            <!--<div class="icon cart">🛒</div>-->
+            <div class="header-icon cart-icon" id="open-cart-modal">
+                🛒
+                <span id="cart-count" style="display:none;">0</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ====== SECTION INFORMATION ====== -->
+    <main class="info-section">
+
+        <h1 class="page-title">Nos Services</h1>
+
+        <!-- Section 1 : Qui sommes-nous ? -->
+        <section id="qui-sommes-nous" class="info-block block-about">
+            <div class="block-header">
+                <h2>Qui sommes-nous ?</h2>
+                <div class="underline"></div>
+            </div>
+            <p class="intro">Bienvenue dans l'univers de <span class="highlight">GRIDWEAR</span>, où la mode rencontre l'audace et l'authenticité. Notre mission est de créer des collections qui permettent à chacun d’exprimer son style unique et sa personnalité.</p>
+
+            <blockquote class="quote-design">
+                <header>Notre devise</header>
+                <p>« Chez Gridwear, chaque tenue allie la vitesse de la piste, l’élégance du luxe et la puissance du style. »</p>
+            </blockquote>
+
+            <div class="values-container">
+                <div class="value-card">
+                    <div class="icon">🎨</div>
+                    <h3>Créativité</h3>
+                    <p>Des designs exclusifs, toujours à l’affût des dernières tendances et innovations stylistiques.</p>
+                </div>
+                <div class="value-card">
+                    <div class="icon">🌱</div>
+                    <h3>Durabilité</h3>
+                    <p>Des matières respectueuses de l’environnement, un engagement pour un futur plus vert et responsable.</p>
+                </div>
+                <div class="value-card">
+                    <div class="icon">🤝</div>
+                    <h3>Confiance</h3>
+                    <p>Expérience d’achat sécurisée, service client réactif et livraison rapide pour chaque commande.</p>
+                </div>
+            </div>
+
+            <div class="team-section">
+                <h3>Notre équipe</h3>
+                <p>Styliste, designer, expert textile, chaque membre de notre équipe travaille avec passion pour offrir la meilleure qualité.</p>
+                <div class="team-photos">
+                    <img src="images/information/perso-1.JPG" alt="CTO et co-founder : Jean">
+                    <img src="images/information/perso-2.JPG" alt="CTP et co-founder : Marc">
+                    <img src="images/information/perso-3.JPG" alt="Directrice de la communication : Marie">
+                    <img src="images/information/perso-4.JPG" alt="Directrice des Ressources Humaines : Rosie">
+                    <img src="images/information/perso-5.JPG" alt="Responsable QSE : Jeanne">
+                    <img src="images/information/perso-6.JPG" alt="Responsable de la communication : Bertrand">
+                    <img src="images/information/perso-7.JPG" alt="Responsable de la publicité : Lysie">
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2 : Notre boutique -->
+        <section id="notre-boutique" class="info-block block-shop">
+            <div class="block-header">
+                <h2>Notre boutique</h2>
+                <div class="underline"></div>
+            </div>
+
+            <p>Venez découvrir notre boutique physique ou explorez nos collections en ligne. Chaque article est présenté avec photos haute résolution, descriptifs détaillés et guide de tailles pour vous aider à choisir.</p>
+
+            <div class="shop-info">
+                <h3>Horaires</h3>
+                <ul>
+                    <li>Lundi - Vendredi : 10h - 19h</li>
+                    <li>Samedi : 10h - 18h</li>
+                    <li>Dimanche : Fermé</li>
+                </ul>
+                <h3>Adresse</h3>
+                <p>12 rue de la Mode, 75000 Paris, France</p>
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.999488949084!2d2.292292615674964!3d48.85837397928761!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66fdeb16d07ed%3A0x123456789abcdef!2s12%20Rue%20de%20la%20Mode%2C%2075000%20Paris%2C%20France!5e0!3m2!1sfr!2sfr!4v1600000000000!5m2!1sfr!2sfr" 
+                        height="300" style="border:0; width:100%" allowfullscreen="" loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+
+            <div class="shop-gallery">
+                <img src="images/information/boutique-0.jpeg" alt="Solde au sein de la boutique">
+                <img src="images/information/boutique-1.webp" alt="Intérieur de la boutique">
+                <img src="images/information/boutique-2.jpeg" alt="Intérieur de la boutique">
+            </div>
+        </section>
+
+        <!-- Section 3 : Nous contacter -->
+        <section id="nous-contacter" class="info-block block-contact">
+            <div class="block-header">
+                <h2>Nous contacter</h2>
+                <div class="underline"></div>
+            </div>
+
+            <p>Nous adorons communiquer avec nos clients ! N'hésitez pas à nous envoyer un message ou nous suivre sur nos réseaux sociaux.</p>
+
+            <div class="contact-methods">
+                <ul class="contact-list">
+                    <li><span class="icon">📧</span> Email : <a href="mailto:contact@gridwear.fr">contact@gridwear.fr</a></li>
+                    <li><span class="icon">📞</span> Téléphone : 01 23 45 67 89</li>
+                    <li><span class="icon">💬</span> Chat en ligne : Disponible 24/7</li>
+                </ul>
+
+                <form class="contact-form">
+                    <input type="text" placeholder="Votre nom" required>
+                    <input type="email" placeholder="Votre email" required>
+                    <textarea placeholder="Votre message" rows="6" required></textarea>
+                    <button type="submit">Envoyer</button>
+                </form>
+            </div>
+
+            <div class="social-links">
+                <span class="social-icon">📘</span>
+                <span class="social-icon">📸</span>
+                <span class="social-icon">🎵</span>
+                <span class="social-icon">💬</span>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- GESTION DU PANIER -->
+    <section>
+        <div id="cart-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" id="close-cart-modal">&times;</span>
+                <h2>🛍️ Votre Panier</h2>
+                    
+                <div id="cart-items-container">
+                    </div>
+
+                <div id="cart-summary">
+                    <p>Total : <span id="cart-total">0.00€</span></p>
+                </div>
+
+                <div id="cart-actions">
+                    <button id="clear-cart-btn" class="button secondary-button">Vider le panier</button>
+                    <button id="checkout-btn" class="button primary-button" disabled>Commander</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="delivery-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" id="close-delivery-modal">&times;</span>
+                <h2>🚚 Informations de Livraison</h2>
+                <form id="delivery-form">
+                    <input type="text" id="delivery-name" placeholder="Nom et Prénom" 
+                        pattern="[A-Za-zÀ-ÿ\s]+" title="Seules les lettres et les espaces sont autorisés" required>
+                        
+                    <input type="email" id="delivery-email" placeholder="Email" 
+                        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" 
+                        title="Doit être de la forme exemple@domaine.ext (ext doit avoir au moins 2 lettres)" required>
+                        
+                    <input type="tel" id="delivery-phone" placeholder="Téléphone (ex: 0612345678)" 
+                        pattern="[0-9]{8,15}" title="Uniquement des chiffres (8 à 15)" required>
+                        
+                    <input type="text" id="delivery-address" placeholder="Adresse complète" required>
+                        
+                    <input type="text" id="delivery-city" placeholder="Ville" 
+                        pattern="[A-Za-zÀ-ÿ\s]+" title="Seules les lettres et les espaces sont autorisés" required>
+                        
+                    <input type="text" id="delivery-zip" placeholder="Code Postal" 
+                        pattern="[0-9]{4,6}" title="Uniquement des chiffres (4 à 6)" required>
+
+                    <input type="text" id="delivery-country" placeholder="Pays" 
+                        pattern="[A-Za-zÀ-ÿ\s]+" title="Seules les lettres et les espaces sont autorisés" required>
+
+                    <button type="submit" class="button primary-button">Suivant</button>
+                    </form>
+            </div>
+        </div>
+
+        <div id="payment-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" id="close-payment-modal">&times;</span>
+                <h2>💳 Paiement</h2>
+                <form id="payment-form">
+                    <label for="payment-method">Choisir la méthode de paiement :</label>
+                    <select id="payment-method">
+                        <option value="cb">Carte Bancaire</option>
+                        <option value="paypal">PayPal</option>
+                    </select>
+
+                    <div id="cb-fields" class="payment-fields">
+                        <input type="text" id="card-number" placeholder="Numéro de carte (16 chiffres)" 
+                            pattern="\d{16}" maxlength="16" title="Doit contenir exactement 16 chiffres" required>
+                                
+                        <input type="text" id="expiry-date" placeholder="MM/AA" 
+                            pattern="\d{2}\/\d{2}" maxlength="5" title="Doit être au format MM/AA" required>
+                                
+                        <input type="text" id="cvc" placeholder="CVC (3 chiffres)" 
+                            pattern="\d{3}" maxlength="3" title="Doit contenir exactement 3 chiffres" required>
+                    </div>
+
+                    <div id="paypal-fields" class="payment-fields" style="display:none;">
+                        <p>Vous serez redirigé vers PayPal pour finaliser votre achat.</p>
+                        <input type="text" id="paypal-email" placeholder="Email PayPal" 
+                            pattern="[^@]+@[^@]+\.[a-zA-Z]{2,}" 
+                            title="Veuillez entrer une adresse e-mail valide (ex: utilisateur@domaine.com)."
+                            required>
+                    </div>
+                        
+                    <p class="total-final">Total à payer : <strong id="final-total">0.00€</strong></p>
+                        
+                    <div id="payment-actions">
+                        <button type="button" id="back-to-delivery-btn" class="button secondary-button">Retour</button>
+                        <button type="submit" class="button primary-button">Valider la commande</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="confirmation-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" id="close-confirmation-modal">&times;</span>
+                <h2>✅ Commande Validée !</h2>
+                <p>Votre commande a été passée avec succès.</p>
+                <p>Un email de confirmation vous sera envoyé sous peu.</p>
+                <div class="total-final">Total payé : <strong id="final-paid-amount">0.00€</strong></div>
+                <button id="continue-shopping-btn" class="button primary-button" style="width: 100%; margin-top: 20px;">Continuer mes achats</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== FOOTER COMMUN ====== -->
+    <footer class="footer">
+
+        <!-- Partie Haut -->
+        <div class="footer-top">
+
+            <!-- Services -->
+            <div class="footer-column">
+                <h3>Services</h3>
+                <a href="service.html#livraison">Livraison</a>
+                <a href="service.html#retour">Retour</a>
+                <a href="service.html#faq">Consulter notre FAQ</a>
+            </div>
+
+            <!-- Centre : Gridwear + réseaux -->
+            <div class="footer-center">
+                <h2 class="footer-logo">Gridwear sur les réseaux</h2>
+
+                <div class="social-icons">
+                    <!-- Facebook -->
+                    <svg viewBox="0 0 24 24" class="icon">
+                        <path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2v-3h2v-2.3c0-2 1.2-3.1 3-3.1
+                        .9 0 1.8.1 1.8.1v2h-1c-1 0-1.3.6-1.3 1.2V12h2.2l-.3 3h-1.9v7A10 10 0 0 0 22 12z"/>
+                    </svg>
+
+                    <!-- Instagram -->
+                    <svg viewBox="0 0 24 24" class="icon">
+                        <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2
+                        c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zm-5 3a5 5 0 1 0 0 10
+                        5 5 0 0 0 0-10zm6.5-.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/>
+                    </svg>
+
+                    <!-- TikTok -->
+                    <svg viewBox="0 0 24 24" class="icon">
+                        <path d="M17 2h3a5 5 0 0 1-5 5v8a7 7 0 1 1-7-7 3 3 0 0 0 3-3v3a4 4 0 1 0 4 4V2z"/>
+                    </svg>
+
+                    <!-- WhatsApp -->
+                    <svg viewBox="0 0 24 24" class="icon">
+                        <path d="M12 2A10 10 0 0 0 2 12c0 1.8.5 3.5 1.3 5L2 22l5-1.3A10 10 0 1 0 12 2zm0 2
+                        a8 8 0 1 1-4.3 14.7l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 0 1 12 4zm4.5 9.5c-.2-.4-.8-.6-1.6-.9s-1-.1-1.3.3l-.6.7
+                        c-.3.3-.5.4-1 .2-.5-.3-2-1-3-2.6-.2-.5 0-.7.2-1l.5-.5c.3-.3.4-.6.3-1L9.3 8c-.1-.4-.5-.9-1-.9H8
+                        c-.3 0-.8.1-1.2.6-.6.6-1 1.7-1 2.5 0 3 2.8 5.7 5.2 6.8 2.2.9 3.1.8 4 .7.7-.2 1.7-.7 2-1.4.2-.5.2-1 .1-1.3z"/>
+                    </svg>
+
+                </div>
+            </div>
+
+            <!-- Gridwear infos -->
+            <div class="footer-column">
+                <h3>Informations</h3>
+                <a href="information.html#qui-sommes-nous">Qui sommes-nous ?</a>
+                <a href="information.html#notre-boutique">Notre boutique</a>
+                <a href="information.html#nous-contacter">Nous contacter</a>
+            </div>
+        </div>
+
+        <!-- Partie Bas -->
+        <div class="footer-bottom">
+            <div class="payment-logos">
+
+                <!-- VISA -->
+                <svg class="pay-icon" viewBox="0 0 48 16">
+                    <path fill="#1A1F71"
+                    d="M17.1 15.6H13.5L15.8.4h3.6l-2.3 15.2z"/>
+                </svg>
+
+                <!-- Mastercard -->
+                <svg class="pay-icon" viewBox="0 0 48 16">
+                    <circle cx="18" cy="8" r="6" fill="#EB001B"/>
+                    <circle cx="30" cy="8" r="6" fill="#F79E1B"/>
+                    <path fill="#FF5F00" d="M24 2a6 6 0 0 0 0 12 6 6 0 0 0 0-12z"/>
+                </svg>
+
+                <!-- PayPal -->
+                <svg class="pay-icon" viewBox="0 0 48 16">
+                    <path fill="#003087"
+                    d="M15 3h-6l-3 10h4l.6-2h3c3 0 5-2 5-4.5S18 3 15 3z"/>
+                </svg>
+
+                <!-- Google Pay -->
+                <svg class="pay-icon" viewBox="0 0 48 16">
+                    <path fill="#34A853" d="M9 4l-3 3 3 3"/>
+                    <path fill="#4285F4" d="M6 7h7"/>
+                </svg>
+
+                <!-- Apple Pay -->
+                <svg class="pay-icon" viewBox="0 0 48 16">
+                    <path fill="currentColor"
+                    d="M16 4c-.7.4-1.2 1.1-1.1 2 .8.1 1.6-.4 2.1-1.2.5-.8.6-1.9-.2-2.6-.8-.1-1.6.4-1.9 1.1zm1.9 3.1c-1.1 
+                    0-1.5.8-2.3.8-.8 0-1-.7-2.1-.7-1.2 0-2.4 1.4-2.4 3.2 0 1.8 1.1 3.7 2.4 3.7.9 0 1.2-.6 2.2-.6 1 
+                    0 1.2.6 2.2.6 1.3 0 2.4-1.8 2.4-3.6 0-2.4-1.4-3.4-2.4-3.4z"/>
+                </svg>
+            </div>
+
+            <div class="legal-links">
+                <a href="regle.html#conditions-de-vente">Conditions de vente</a>
+                <a href="regle.html#politique-de-confidentialite">Politique de confidentialité</a>
+                <a href="regle.html#mentions-legales">Mentions légales</a>
+                <a href="regle.html#preferences-cookies">Préférences cookies</a>
+                <a href="regle.html#glossaire">Glossaire</a>
+                <a href="regle.html#sitographie">Sitographie</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="information.js"></script>
+</body>
+</html>
