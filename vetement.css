@@ -1,0 +1,759 @@
+/* ====== GLOBAL ====== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Orbitron', sans-serif;
+}
+
+body {
+    background-color: #fff;
+    color: #111;
+    overflow-x: hidden;
+}
+
+/* ====== VETEMENTS SECTION ====== */
+.vetement-section {
+    padding: 40px 50px;
+}
+
+.vetement-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: normal;
+    gap: 20px;
+}
+
+.vetement-header h2 {
+    font-size: 36px;
+}
+
+.sort-container, 
+.filter-container {
+    position: relative;
+    display: inline-block;
+}
+
+.sort-container{
+    margin-left: auto;
+}
+
+.vetement-header .sort-container {
+    margin-left: 950px;
+}
+
+.sort-list, 
+.filter-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+    list-style: none;
+    padding: 0;
+    margin: 5px 0 0 0;
+    display: none; /* cachée par défaut */
+    z-index: 999;
+    min-width: 180px;
+}
+
+.sort-list li, 
+.filter-list li {
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.sort-list li:hover, 
+.filter-list li:hover {
+    background: #f0f0f0;
+}
+
+#sort-button, #filter-button {
+    padding: 6px 12px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+/* ====== GRID ARTICLES ====== */
+
+/* Modal overlay */
+.modal {
+    display: none; /* caché par défaut */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* toujours au-dessus de tout */
+}
+
+/* Contenu du modal */
+.modal-content {
+    background: #fff;
+    border-radius: 10px;
+    width: 70vw;   /* 70% largeur écran */
+    height: 70vh;  /* 70% hauteur écran */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.modal-content img {
+    max-width: 100%;
+    max-height: 80%;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* Croix pour fermer */
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Miniatures verticales à gauche du modal */
+.modal-thumbnails {
+    position: absolute;
+    left: 7%;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Miniature */
+.modal-thumbnails img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.modal-thumbnails img:hover {
+    transform: scale(1.05);
+    border-color: #FFD700;
+}
+
+.modal-info {
+    position: absolute;       /* On le positionne par rapport à .modal-content */
+    top: 50%;                 /* Centré verticalement */
+    right: 5%;                /* À 5% du bord droit */
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.9);
+    padding: 10px 15px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 200px;         /* Largeur fixe pour éviter d’empiéter sur l’image */
+    z-index: 2;               /* Au-dessus de l’image si besoin */
+    font-size: 24px;
+}
+
+/* Bouton Restaurer */
+#restore-image {
+    position: absolute;
+    bottom: 110%;
+    left: 14%;
+    padding: 6px 12px;
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    font-size: 14px;
+}
+
+#restore-image:hover {
+    background: #555;
+}
+
+/* Bouton Ajouter au panier */
+#add-to-cart {
+    padding: 12px 24px;
+    background: #FFD700;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#add-to-cart:hover {
+    background: #FFC107;
+}
+
+/* Grille articles (5 colonnes) */
+.articles-grid {
+    margin-top: 100px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.article-card {
+    background: #f8f8f8;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 90%;
+    transition: transform 0.3s ease;
+}
+
+.article-card img {
+    width: 100%;
+    height: 80%;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
+
+.article-card:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+/* Bouton "Voir l'article" */
+.view-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.article-card:hover .view-button {
+    display: block;
+}
+
+.view-button:hover {
+    background: rgba(75, 71, 71, 0.9);
+    color: #ffffff;
+}
+
+.article-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.article-info .left-info h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.article-info .left-info select {
+    padding: 3px 6px;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.article-info .left-info p {
+    font-size: 14px;
+}
+
+.article-info .right-info .heart {
+    font-size: 22px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.article-info .right-info .heart:hover {
+    transform: scale(1.2);
+    color: red;
+}
+
+/* ====== PAGINATION ====== */
+.pagination {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.page-btn {
+    margin: 0 5px;
+    padding: 6px 12px;
+    border: none;
+    background: #ddd;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.page-btn.active {
+    background: #111;
+    color: #FFD700;
+}
+
+/* ======================================================= */
+/* ====== Styles pour le Panier et les Modales de Commande ====== */
+/* ======================================================= */
+
+/* --- 1. Badge du Panier dans le Header --- */
+#cart-count {
+    position: absolute;
+    top: -5px; 
+    right: -10px; 
+    background-color: #ff4500; 
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    min-width: 20px;
+    text-align: center;
+    line-height: 1.2;
+    font-weight: bold;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    z-index: 99; /* Assure que le badge est au-dessus de l'icône */
+}
+
+/* --- 2. Styles Généraux des Modales --- */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000; /* Au-dessus de tous les autres éléments */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.7); 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.modal-content {
+    background: #fff;
+    border-radius: 10px;
+    width: 1200px;   
+    min-width: 1200px;
+    max-width: 1200px;
+    height: 600px;  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 20px;
+    box-sizing: border-box;
+    margin: auto; 
+}
+
+@keyframes slideDown {
+    from {transform: translateY(-50px); opacity: 0;}
+    to {transform: translateY(0); opacity: 1;}
+}
+
+.close-btn {
+    color: #aaa;
+    font-size: 30px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #333;
+}
+
+/* --- 3. Style du Contenu du Panier --- */
+#cart-items-container {
+    max-height: 350px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    padding-right: 10px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item-img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    margin-right: 15px;
+    border-radius: 4px;
+}
+
+.item-details {
+    flex-grow: 1;
+}
+
+.item-details h4 {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.item-details p {
+    margin: 2px 0;
+    font-size: 13px;
+    color: #777;
+}
+
+.item-quantity-input {
+    width: 45px;
+    text-align: center;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.item-price-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-left: 10px;
+}
+
+.item-price {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #000;
+}
+
+.remove-item-btn {
+    background: none;
+    border: none;
+    color: #ff4500;
+    font-size: 20px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+#cart-summary {
+    text-align: right;
+    padding-top: 15px;
+    border-top: 2px solid #333;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#cart-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.empty-cart-message {
+    text-align: center;
+    padding: 30px;
+    color: #777;
+    font-style: italic;
+}
+
+/* --- 4. Styles des Formulaires de Commande --- */
+#delivery-form input,
+#payment-form input,
+#payment-form select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box; /* Important pour que le padding n'augmente pas la taille totale */
+}
+
+.payment-fields {
+    margin-top: 15px;
+    padding: 10px;
+    border: 1px dashed #ccc;
+    border-radius: 4px;
+}
+
+.total-final {
+    font-size: 18px;
+    margin-top: 20px;
+    text-align: right;
+}
+
+/* Boutons */
+.button {
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.primary-button {
+    background-color: #333;
+    color: white;
+    border: none;
+}
+
+.primary-button:hover:not(:disabled) {
+    background-color: #000;
+}
+
+.primary-button:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+}
+
+.secondary-button {
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ccc;
+}
+
+.secondary-button:hover:not(:disabled) {
+    background-color: #e0e0e0;
+}
+
+/* ======================================================= */
+/* ====== RESPONSIVE DESIGN POUR SMARTPHONES ET PETITS ÉCRANS ====== */
+/* ======================================================= */
+@media screen and (max-width: 1400px) {
+    /* --- GLOBAL --- */
+    .vetement-section {
+        padding: 15px;
+    }
+
+    /* --- HEADER DE LA PAGE --- */
+    .vetement-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    .vetement-header h2 {
+        font-size: 24px;
+        width: 100%;
+    }
+    .sort-container,
+    .filter-container {
+        align-self: flex-start;
+        margin-left: 0 !important;
+    }
+    #sort-button,
+    #filter-button {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+    .sort-list,
+    .filter-list {
+        min-width: 150px;
+        left: 0;
+    }
+
+    /* --- GRID DES ARTICLES --- */
+    .articles-grid {
+        margin-top: 30px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    .article-card {
+        width: 100%;
+    }
+    .article-card img {
+        height: 70%;
+    }
+    .view-button {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+    .article-info {
+        padding: 8px;
+    }
+    .article-info .left-info h3 {
+        font-size: 14px;
+    }
+    .article-info .left-info select {
+        font-size: 12px;
+        padding: 2px 4px;
+    }
+    .article-info .left-info p {
+        font-size: 12px;
+    }
+    .article-info .right-info .heart {
+        font-size: 18px;
+    }
+
+    /* --- MODAL --- */
+    .modal-content {
+        width: 95%;
+        height: 80vh;
+        flex-direction: column;
+    }
+    .modal-thumbnails {
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
+        flex-direction: row;
+        justify-content: center;
+        margin-bottom: 15px;
+        gap: 8px;
+    }
+    .modal-thumbnails img {
+        width: 60px;
+        height: 60px;
+    }
+    #restore-image {
+        position: static;
+        margin-bottom: 10px;
+        font-size: 12px;
+    }
+    .modal-info {
+        position: static;
+        transform: none;
+        background: transparent;
+        padding: 0;
+        margin-top: 10px;
+        font-size: 16px;
+        text-align: center;
+    }
+    #add-to-cart {
+        padding: 8px 16px;
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    /* --- PAGINATION --- */
+    .pagination {
+        margin-top: 20px;
+    }
+    .page-btn {
+        padding: 4px 8px;
+        font-size: 14px;
+    }
+
+    /* --- FOOTER --- */
+    .footer-top {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .footer-column {
+        text-align: center;
+    }
+    .footer-column h3 {
+        font-size: 20px;
+    }
+    .social-icons {
+        justify-content: center;
+    }
+    .icon {
+        width: 28px;
+        height: 28px;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    .payment-logos {
+        justify-content: center;
+    }
+    .pay-icon {
+        width: 30px;
+        height: 30px;
+    }
+    .legal-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .legal-links a {
+        font-size: 12px;
+        margin: 0 5px;
+    }
+
+    /* --- MODALES (Panier, Livraison, Paiement) --- */
+    .modal-content {
+        width: 95% !important;
+        min-width: auto !important;
+        max-width: none !important;
+        height: auto !important;
+        margin: 10px;
+        padding: 15px;
+    }
+    #cart-items-container {
+        max-height: 250px;
+    }
+    .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .cart-item-img {
+        width: 70px;
+        height: 70px;
+    }
+    .item-details h4 {
+        font-size: 14px;
+    }
+    .item-details p {
+        font-size: 12px;
+    }
+    #cart-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+    #cart-actions button {
+        width: 100%;
+    }
+    #delivery-form input,
+    #payment-form input,
+    #payment-form select {
+        padding: 8px;
+        font-size: 14px;
+    }
+    #payment-actions {
+        flex-direction: column;
+    }
+    #payment-actions button {
+        width: 100%;
+    }
+    .total-final {
+        font-size: 16px;
+    }
+    .close-btn {
+        top: 5px;
+        right: 10px;
+        font-size: 24px;
+    }
+}

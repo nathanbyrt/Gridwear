@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez les nouveautés Gridwear : vetements, accessoires et bien plus encore. Faites-vous plaisir avec les nouveauté et les exclusivités.">
+    <meta name="keywords" content="Gridwear, accessoires, nouveautés, vetements, mode, boutique en ligne, vêtements futuristes, panier, paiement sécurisé, automobile, sport">
+    <meta name="author" content="Emma Stella Ntsame Ayoo Obame, Marc, Pierre">
+    <meta property="og:title" content="Gridwear">
+    <meta property="og:description" content="Parcourez les derniers accessoires et vetements Gridwear et explorez nos produits.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/accueil/logo/gridwear.jpg">
+    <meta property="og:url" content="service.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Services - Gridwear">
+    <meta name="twitter:description" content="Découvrez notre collection de vetements et d'acessoires uniques.">
+    <meta name="twitter:image" content="images/accueil/logo/gridwear.jpg">
+    <title>Services - Gridwear</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="service.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ====== HEADER ====== --> 
+    <header class="header sticky">
+        <div class="logo" onclick="window.location.href='index.html'">GRIDWEAR</div>
+        <nav class="nav">
+            <div class="nav-item" onclick="window.location.href='nouveaute.html'">Nouveautés</div>
+            <div class="nav-item" onclick="window.location.href='vetement.html'">Vêtements</div>
+            <div class="nav-item" onclick="window.location.href='accessoire.html'">Accessoires</div>
+        </nav>
+        <div class="header-icons">
+            <!--<div class="icon cart">🛒</div>-->
+            <div class="header-icon cart-icon" id="open-cart-modal">
+                🛒
+                <span id="cart-count" style="display:none;">0</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ====== PAGE CONTENT ====== -->
+     <main class="service-container">
+
+        <h1 class="page-title">Nos Services</h1>
+
+        <!-- █████████████████████████ -->
+        <!--        1. LIVRAISON       -->
+        <!-- █████████████████████████ -->
+        <section id="livraison" class="service-block">
+            <h2 class="block-title">Livraison</h2>
+            <p class="block-desc">
+                Choisissez votre transporteur pour connaître les tarifs, les délais,
+                et les options de livraison à domicile ou en point relais.
+                Les informations se mettront à jour automatiquement en fonction du pays sélectionné.
+            </p>
+
+            <!-- MENU DES LIVREURS -->
+            <div class="carrier-selector">
+                <label for="carrier-list">Sélectionnez un livreur :</label>
+                <select id="carrier-list">
+                    <option value="">-- Choisir --</option>
+                    <option value="chrono">Chronopost</option>
+                    <option value="colissimo">Colissimo</option>
+                    <option value="ups">UPS</option>
+                    <option value="dhl">DHL</option>
+                    <option value="mondial">Mondial Relay</option>
+                </select>
+            </div>
+
+            <!-- BLOCS DES LIVREURS (INITIALLEMENT CACHÉS) -->
+            <div id="carrier-data">
+
+                <!-- CHRONOPOST -->
+                <div class="carrier-card" id="chrono">
+                    <h3>📦 Chronopost</h3>
+                    <p>
+                        Livraison express à domicile ou en point retrait, disponible en France et en Europe.
+                        Chronopost est idéal si vous souhaitez recevoir votre commande rapidement.
+                        <br><br>
+                        <strong>Délai moyen :</strong> 24 à 48h ouvrées*  
+                        *Délais indicatifs fournis par Chronopost.
+                        <br><br>
+                        <strong>Suivi :</strong> notifications SMS/email dès la prise en charge du colis,
+                        ainsi qu’un suivi complet dans votre espace « Historique de commande ».
+                    </p>
+
+                    <!-- pays -->
+                    <label>Pays de livraison :</label>
+                    <select class="country-select">
+                        <option value="fr">France</option>
+                        <option value="be">Belgique</option>
+                        <option value="ch">Suisse</option>
+                    </select>
+
+                    <div class="shipping-info"></div>
+                </div>
+
+                <!-- COLISSIMO -->
+                <div class="carrier-card" id="colissimo">
+                    <h3>📦 Colissimo</h3>
+                    <p>
+                        Livraison standard en boîte aux lettres ou en point retrait.
+                        Une solution fiable et économique pour vos commandes du quotidien.
+                        <br><br>
+                        <strong>Délai moyen :</strong> 3 à 5 jours ouvrés*  
+                        *Informations indiquées par Colissimo.
+                        <br><br>
+                        <strong>Suivi :</strong> votre numéro de suivi est disponible dans votre
+                        compte client Gridwear et mis à jour à chaque étape.
+                    </p>
+
+                    <label>Pays de livraison :</label>
+                    <select class="country-select">
+                        <option value="fr">France</option>
+                        <option value="be">Belgique</option>
+                        <option value="lu">Luxembourg</option>
+                    </select>
+
+                    <div class="shipping-info"></div>
+                </div>
+
+                <!-- UPS -->
+                <div class="carrier-card" id="ups">
+                    <h3>🚚 UPS</h3>
+                    <p>
+                        Transporteur international reconnu pour sa précision et sa qualité de service.
+                        Recommandé pour les livraisons professionnelles ou rapides.
+                        <br><br>
+                        <strong>Délai moyen :</strong> 2 à 4 jours ouvrés selon la destination.  
+                        <br><br>
+                        <strong>Suivi :</strong> suivi détaillé accessible en temps réel via votre
+                        compte client et par email.
+                    </p>
+
+                    <label>Pays de livraison :</label>
+                    <select class="country-select">
+                        <option value="fr">France</option>
+                        <option value="es">Espagne</option>
+                        <option value="it">Italie</option>
+                    </select>
+
+                    <div class="shipping-info"></div>
+                </div>
+
+                <!-- DHL -->
+                <div class="carrier-card" id="dhl">
+                    <h3>✈️ DHL International</h3>
+                    <p>
+                        Idéal pour les livraisons rapides à l'international.
+                        DHL assure un traitement prioritaire et une expédition sécurisée.
+                        <br><br>
+                        <strong>Délai moyen :</strong> 2–3 jours en Europe, 3–6 jours pour les autres pays.*  
+                        <br><br>
+                        <strong>Suivi :</strong> notifications automatiques + tracking complet sur votre espace client.
+                    </p>
+
+                    <label>Pays de livraison :</label>
+                    <select class="country-select">
+                        <option value="fr">France</option>
+                        <option value="de">Allemagne</option>
+                        <option value="uk">Royaume-Uni</option>
+                    </select>
+
+                    <div class="shipping-info"></div>
+                </div>
+
+                <!-- MONDIAL RELAY -->
+                <div class="carrier-card" id="mondial">
+                    <h3>📮 Mondial Relay</h3>
+                    <p>
+                        Une option économique pour la livraison en point relais ou lockers.
+                        Parfait pour ceux qui souhaitent récupérer leur colis en toute flexibilité.
+                        <br><br>
+                        <strong>Délai moyen :</strong> 3 à 5 jours ouvrés*  
+                        *Délais fournis à titre indicatif.
+                        <br><br>
+                        <strong>Prix :</strong> 4,00€  
+                        <em>Gratuit dès 75€ d’achat.</em>
+                        <br><br>
+                        <strong>Suivi :</strong> SMS/email lorsque le colis est disponible en point relais.
+                        Suivi intégral dans votre « Historique de commande ».
+                        <br><br>
+                        <strong>Retrait :</strong> vous disposez de 5 jours ouvrables pour récupérer votre colis.
+                    </p>
+
+                    <label>Pays de livraison :</label>
+                    <select class="country-select">
+                        <option value="fr">France</option>
+                        <option value="be">Belgique</option>
+                        <option value="es">Espagne</option>
+                    </select>
+
+                    <div class="shipping-info"></div>
+                </div>
+
+            </div> <!-- end carrier-data -->
+        </section>
+
+        <!-- █████████████████████████ -->
+        <!--           2. RETOUR       -->
+        <!-- █████████████████████████ -->
+        <section id="retour" class="service-block">
+            <h2 class="block-title">Retour</h2>
+            <p class="block-desc">
+                Vous avez la possibilité de retourner vos articles selon certaines conditions. Sélectionnez votre transporteur ci-dessous pour connaître la procédure spécifique.
+            </p>
+
+            <!-- MENU DES TRANSPORTEURS POUR RETOUR -->
+            <div class="carrier-selector">
+                <label for="return-carrier-list">Sélectionnez un transporteur pour le retour :</label>
+                <select id="return-carrier-list">
+                    <option value="">-- Choisir --</option>
+                    <option value="chrono-retour">Chronopost</option>
+                    <option value="colissimo-retour">Colissimo</option>
+                    <option value="ups-retour">UPS</option>
+                    <option value="dhl-retour">DHL</option>
+                    <option value="mondial-retour">Mondial Relay</option>
+                </select>
+            </div>
+
+            <!-- BLOCS DES TRANSPORTEURS (CACHÉS PAR DÉFAUT) -->
+            <div id="return-carrier-data">
+
+                <!-- CHRONOPOST -->
+                <div class="carrier-card" id="chrono-retour">
+                    <h3>📦 Chronopost</h3>
+                    <div class="shipping-info"></div>
+                </div>
+
+                <!-- COLISSIMO -->
+                <div class="carrier-card" id="colissimo-retour">
+                    <h3>📦 Colissimo</h3>
+                    <div class="shipping-info"></div>
+                </div>
+
+                <!-- UPS -->
+                <div class="carrier-card" id="ups-retour">
+                    <h3>🚚 UPS</h3>
+                    <div class="shipping-info"></div>
+                </div>
+
+                <!-- DHL -->
+                <div class="carrier-card" id="dhl-retour">
+                    <h3>✈️ DHL International</h3>
+                    <div class="shipping-info"></div>
+                </div>
+
+                <!-- MONDIAL RELAY -->
+                <div class="carrier-card" id="mondial-retour">
+                    <h3>📮 Mondial Relay</h3>
+                    <div class="shipping-info"></div>
+                </div>
+
+            </div> <!-- end return-carrier-data -->
+        </section>
+
+        <!-- █████████████████████████ -->
+        <!--        3. FAQ            -->
+        <!-- █████████████████████████ -->
+        <section id="faq" class="service-block">
+            <h2 class="block-title">Foire aux Questions</h2>
+            <p class="block-desc">
+                Retrouvez ici toutes les réponses aux questions les plus fréquentes concernant nos services, vos commandes, les retours et plus encore.
+            </p>
+
+            <div class="faq-container">
+                <!-- GAUCHE : DOMAINES -->
+                <div class="faq-left">
+                    <ul class="faq-domains">
+                        <li data-domain="commande" class="active">Commandes</li>
+                        <li data-domain="livraison">Livraison</li>
+                        <li data-domain="retour">Retour</li>
+                        <li data-domain="paiement">Paiement</li>
+                        <li data-domain="compte">Compte client</li>
+                        <li data-domain="produits">Produits</li>
+                        <li data-domain="autres">Autres</li>
+                    </ul>
+                </div>
+
+                <!-- DROITE : QUESTIONS + RÉPONSES -->
+                <div class="faq-right">
+                    <div class="faq-info">
+                        <p>
+                            Sélectionnez un domaine à gauche pour découvrir les questions les plus fréquentes et leurs réponses détaillées.
+                        </p>
+                    </div>
+
+                    <div class="faq-questions">
+                        <!-- DOMAINES : 6 QUESTIONS CHACUN -->
+
+                        <!-- COMMANDES -->
+                        <div class="faq-question" data-domain="commande">
+                            <div class="question-title">Comment passer une commande ?</div>
+                            <div class="question-answer"><p>Pour passer une commande, sélectionnez vos articles, ajoutez-les au panier, puis suivez le processus de paiement sécurisé. Vous recevrez ensuite un e-mail de confirmation.</p></div>
+                        </div>
+                        <div class="faq-question" data-domain="commande">
+                            <div class="question-title">Puis-je modifier ma commande après validation ?</div>
+                            <div class="question-answer"><p>Les commandes sont traitées rapidement. Contactez-nous immédiatement via notre service client pour toute modification.</p></div>
+                        </div>
+                        <div class="faq-question" data-domain="commande">
+                            <div class="question-title">Comment ajouter un code promo ?</div>
+                            <div class="question-answer"><p>Vous pouvez entrer votre code promo dans la section panier avant le paiement final.</p></div>
+                        </div>
+                        <div class="faq-question" data-domain="commande">
+                            <div class="question-title">Puis-je commander sans créer de compte ?</div>
+                            <div class="question-answer"><p>Oui, vous pouvez passer commande directement avec votre e-mail et numéro de commande pour le suivi.</p></div>
+                        </div>
+                        <div class="faq-question" data-domain="commande">
+                            <div class="question-title">Puis-je commander pour une autre personne ?</div>
+                            <div class="question-answer"><p>Oui, vous pouvez saisir une adresse de livraison différente lors du paiement.</p></div>
+                        </div>
+                        <div class="faq-question" data-domain="commande">
+                            <div class="question-title">Comment savoir si ma commande a été prise en compte ?</div>
+                            <div class="question-answer"><p>Vous recevrez un e-mail de confirmation avec un numéro de suivi dès que la commande est validée.</p></div>
+                        </div>
+
+                        <!-- LIVRAISON -->
+                        <div class="faq-question" data-domain="livraison">
+                            <div class="question-title">Quels sont les délais de livraison ?</div>
+                            <div class="question-answer"><p>Les délais varient selon le transporteur et le pays. Vous pouvez consulter ces informations directement dans la rubrique "Livraison".</p></div>
+                        </div>
+                        <div class="faq-question" data-domain="livraison">
+                            <div class="question-title">Quels pays livrez-vous ?</div>
+                            <div class="question-answer"><p>Nous livrons en France, Belgique, Luxembourg, Suisse, Espagne, Italie, Allemagne et Royaume-Uni selon le transporteur.</p></div>
+                        </div>
+                        <div class="faq-question" data-domain="livraison">
+                            <div class="question-title">Puis-je suivre mon colis ?</div>
+                            <div class="question-answer"><p>Oui, un lien de suivi vous sera envoyé par e-mail ou SMS après expédition.</p></div>
+                        </div>
+                        <div class="faq-question" data-domain="livraison">
+                            <div class="question-title">Puis-je changer l’adresse de livraison ?</div>
+                            <div class="question-answer"><p>Contactez le service client dès que possible. Les modifications dépendent du transporteur et du statut de la commande.</p></div>
+                        </div>
+                        <div class="faq-question" data-domain="livraison">
+                            <div class="question-title">Que faire si mon colis est endommagé ?</div>
+                            <div class="question-answer"><p>Veuillez contacter le transporteur et notre service client immédiatement avec photos à l'appui.</p></div>
+                        </div>
+                        <div class="faq-question" data-domain="livraison">
+                            <div class="question-title">Quels sont les frais de livraison ?</div>
+                            <div class="question-answer"><p>Les frais dépendent du transporteur, du pays et de l’option choisie (domicile ou point relais). Voir la rubrique "Livraison" pour plus de détails.</p></div>
+                        </div>
+
+                        <!-- RETOUR -->
+                        <div class="faq-question" data-domain="retour">
+                            <div class="question-title">Comment effectuer un retour ?</div>
+                            <div class="question-answer"><p>Rendez-vous dans la rubrique "Retour" et suivez la procédure indiquée selon le transporteur choisi.</p></div>
+                        </div>
+                        <div class="faq-question" data-domain="retour">
+                            <div class="question-title">Quel est le délai pour retourner un article ?</div>
+                            <div class="question-answer"><p>Vous disposez de 14 jours après la livraison pour initier votre demande de retour.</p></div>
+                        </div>
+                        <div class="faq-question" data-domain="retour">
+                            <div class="question-title">Puis-je retourner un article utilisé ?</div>
+                            <div class="question-answer"><p>Non, les articles doivent être non portés, non lavés, et avec leurs étiquettes d’origine pour être acceptés.</p></div>
+                        </div>
+                        <div class="faq-question" data-domain="retour">
+                            <div class="question-title">Comment choisir entre remboursement ou bon d’achat ?</div>
+                            <div class="question-answer"><p>Lors de la demande de retour, vous pourrez sélectionner la préférence de remboursement ou bon d’achat.</p></div>
+                        </div>
+                        <div class="faq-question" data-domain="retour">
+                            <div class="question-title">Dois-je créer un compte pour retourner un article ?</div>
+                            <div class="question-answer"><p>Non, utilisez simplement votre numéro de commande et l’e-mail fourni lors de l’achat.</p></div>
+                        </div>
+                        <div class="faq-question" data-domain="retour">
+                            <div class="question-title">Puis-je changer le transporteur pour le retour ?</div>
+                            <div class="question-answer"><p>Vous devez suivre les instructions du transporteur indiqué sur votre étiquette de retour.</p></div>
+                        </div>
+
+                        <!-- PAIEMENT -->
+                        <div class="faq-question" data-domain="paiement">
+                            <div class="question-title">Quels moyens de paiement acceptez-vous ?</div>
+                            <div class="question-answer"><p>Nous acceptons Visa, Mastercard, PayPal, Google Pay et Apple Pay.</p></div>
+                        </div>
+                        <div class="faq-question" data-domain="paiement">
+                            <div class="question-title">Le paiement est-il sécurisé ?</div>
+                            <div class="question-answer"><p>Oui, toutes les transactions passent par des passerelles sécurisées avec cryptage SSL.</p></div>
+                        </div>
+                        <div class="faq-question" data-domain="paiement">
+                            <div class="question-title">Puis-je payer en plusieurs fois ?</div>
+                            <div class="question-answer"><p>Oui, certaines options de paiement en plusieurs fois sont disponibles selon la banque et le montant.</p></div>
+                        </div>
+                        <div class="faq-question" data-domain="paiement">
+                            <div class="question-title">Puis-je utiliser un bon d’achat pour régler ma commande ?</div>
+                            <div class="question-answer"><p>Oui, vous pouvez utiliser un bon d’achat lors du paiement, partiellement ou totalement.</p></div>
+                        </div>
+                        <div class="faq-question" data-domain="paiement">
+                            <div class="question-title">Puis-je annuler un paiement ?</div>
+                            <div class="question-answer"><p>Les paiements validés ne peuvent être annulés, contactez le service client pour assistance.</p></div>
+                        </div>
+                        <div class="faq-question" data-domain="paiement">
+                            <div class="question-title">Les taxes sont-elles incluses ?</div>
+                            <div class="question-answer"><p>Oui, tous les prix indiqués incluent les taxes applicables.</p></div>
+                        </div>
+                        
+                        <!-- COMPTE CLIENT -->
+                        <div class="faq-question" data-domain="compte">
+                            <div class="question-title">Comment créer un compte client ?</div>
+                            <div class="question-answer"><p>Vous pouvez créer un compte à tout moment en utilisant votre e-mail pour suivre vos commandes et gérer vos informations.</p></div>
+                        </div>
+                        <div class="faq-question" data-domain="compte">
+                            <div class="question-title">Puis-je passer commande sans compte ?</div>
+                            <div class="question-answer"><p>Oui, il est possible de commander directement avec votre e-mail et numéro de commande pour le suivi.</p></div>
+                        </div>
+                        <div class="faq-question" data-domain="compte">
+                            <div class="question-title">Comment réinitialiser mon mot de passe ?</div>
+                            <div class="question-answer"><p>Utilisez la fonction "Mot de passe oublié" sur la page de connexion et suivez les instructions envoyées par e-mail.</p></div>
+                        </div>
+                        <div class="faq-question" data-domain="compte">
+                            <div class="question-title">Comment mettre à jour mes informations personnelles ?</div>
+                            <div class="question-answer"><p>Connectez-vous à votre compte, puis modifiez vos informations dans la section "Mon profil".</p></div>
+                        </div>
+                        <div class="faq-question" data-domain="compte">
+                            <div class="question-title">Puis-je supprimer mon compte ?</div>
+                            <div class="question-answer"><p>Oui, contactez notre service client pour demander la suppression de votre compte et de vos données.</p></div>
+                        </div>
+                        <div class="faq-question" data-domain="compte">
+                            <div class="question-title">Mon compte est-il sécurisé ?</div>
+                            <div class="question-answer"><p>Oui, toutes vos informations sont protégées grâce à un cryptage SSL et des mesures de sécurité strictes.</p></div>
+                        </div>
+
+                        <!-- PRODUITS -->
+                        <div class="faq-question" data-domain="produits">
+                            <div class="question-title">Les articles sont-ils conformes aux photos ?</div>
+                            <div class="question-answer"><p>Nous faisons de notre mieux pour que les photos reflètent fidèlement les articles, mais de légères différences peuvent exister.</p></div>
+                        </div>
+                        <div class="faq-question" data-domain="produits">
+                            <div class="question-title">Comment choisir la bonne taille ?</div>
+                            <div class="question-answer"><p>Consultez notre guide des tailles disponible sur chaque fiche produit pour faire le bon choix.</p></div>
+                        </div>
+                        <div class="faq-question" data-domain="produits">
+                            <div class="question-title">Les produits sont-ils garantis ?</div>
+                            <div class="question-answer"><p>Oui, tous nos produits sont garantis contre les défauts de fabrication selon la loi applicable.</p></div>
+                        </div>
+                        <div class="faq-question" data-domain="produits">
+                            <div class="question-title">Puis-je demander un produit spécifique ?</div>
+                            <div class="question-answer"><p>Vous pouvez nous contacter pour toute demande spécifique. Nous ferons notre possible pour répondre à vos besoins.</p></div>
+                        </div>
+                        <div class="faq-question" data-domain="produits">
+                            <div class="question-title">Les stocks sont-ils limités ?</div>
+                            <div class="question-answer"><p>Oui, certains articles sont en édition limitée. La disponibilité est indiquée sur chaque fiche produit.</p></div>
+                        </div>
+                        <div class="faq-question" data-domain="produits">
+                            <div class="question-title">Puis-je recevoir des notifications pour un produit épuisé ?</div>
+                            <div class="question-answer"><p>Oui, inscrivez-vous à la notification sur la fiche produit pour être averti dès son retour en stock.</p></div>
+                        </div>
+
+                        <!-- AUTRES -->
+                        <div class="faq-question" data-domain="autres">
+                            <div class="question-title">Comment contacter le service client ?</div>
+                            <div class="question-answer"><p>Vous pouvez nous contacter via e-mail, WhatsApp ou le formulaire de contact disponible sur notre site.</p></div>
+                        </div>
+                        <div class="faq-question" data-domain="autres">
+                            <div class="question-title">Comment s’abonner à la newsletter ?</div>
+                            <div class="question-answer"><p>Inscrivez-vous en bas de page pour recevoir nos nouveautés, offres et promotions exclusives.</p></div>
+                        </div>
+                        <div class="faq-question" data-domain="autres">
+                            <div class="question-title">Puis-je obtenir une facture pour ma commande ?</div>
+                            <div class="question-answer"><p>Oui, une facture est envoyée par e-mail après chaque commande.</p></div>
+                        </div>
+                        <div class="faq-question" data-domain="autres">
+                            <div class="question-title">Comment signaler un bug sur le site ?</div>
+                            <div class="question-answer"><p>Contactez notre support technique avec une description détaillée et, si possible, une capture d’écran.</p></div>
+                        </div>
+                        <div class="faq-question" data-domain="autres">
+                            <div class="question-title">Puis-je faire des suggestions ou donner mon avis ?</div>
+                            <div class="question-answer"><p>Oui, nous adorons recevoir vos retours. Utilisez le formulaire de contact pour vos suggestions.</p></div>
+                        </div>
+                        <div class="faq-question" data-domain="autres">
+                            <div class="question-title">Le site est-il disponible dans d’autres langues ?</div>
+                            <div class="question-answer"><p>Pour le moment, le site est disponible uniquement en français.</p></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+    <!-- GESTION DU PANIER -->
+    <section>
+        <div id="cart-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" id="close-cart-modal">&times;</span>
+                <h2>🛍️ Votre Panier</h2>
+                    
+                <div id="cart-items-container">
+                    </div>
+
+                <div id="cart-summary">
+                    <p>Total : <span id="cart-total">0.00€</span></p>
+                </div>
+
+                <div id="cart-actions">
+                    <button id="clear-cart-btn" class="button secondary-button">Vider le panier</button>
+                    <button id="checkout-btn" class="button primary-button" disabled>Commander</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="delivery-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" id="close-delivery-modal">&times;</span>
+                <h2>🚚 Informations de Livraison</h2>
+                <form id="delivery-form">
+                    <input type="text" id="delivery-name" placeholder="Nom et Prénom" 
+                        pattern="[A-Za-zÀ-ÿ\s]+" title="Seules les lettres et les espaces sont autorisés" required>
+                        
+                    <input type="email" id="delivery-email" placeholder="Email" 
+                        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" 
+                        title="Doit être de la forme exemple@domaine.ext (ext doit avoir au moins 2 lettres)" required>
+                        
+                    <input type="tel" id="delivery-phone" placeholder="Téléphone (ex: 0612345678)" 
+                        pattern="[0-9]{8,15}" title="Uniquement des chiffres (8 à 15)" required>
+                        
+                    <input type="text" id="delivery-address" placeholder="Adresse complète" required>
+                        
+                    <input type="text" id="delivery-city" placeholder="Ville" 
+                        pattern="[A-Za-zÀ-ÿ\s]+" title="Seules les lettres et les espaces sont autorisés" required>
+                        
+                    <input type="text" id="delivery-zip" placeholder="Code Postal" 
+                        pattern="[0-9]{4,6}" title="Uniquement des chiffres (4 à 6)" required>
+
+                    <input type="text" id="delivery-country" placeholder="Pays" 
+                        pattern="[A-Za-zÀ-ÿ\s]+" title="Seules les lettres et les espaces sont autorisés" required>
+
+                    <button type="submit" class="button primary-button">Suivant</button>
+                    </form>
+            </div>
+        </div>
+
+        <div id="payment-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" id="close-payment-modal">&times;</span>
+                <h2>💳 Paiement</h2>
+                <form id="payment-form">
+                    <label for="payment-method">Choisir la méthode de paiement :</label>
+                    <select id="payment-method">
+                        <option value="cb">Carte Bancaire</option>
+                        <option value="paypal">PayPal</option>
+                    </select>
+
+                    <div id="cb-fields" class="payment-fields">
+                        <input type="text" id="card-number" placeholder="Numéro de carte (16 chiffres)" 
+                            pattern="\d{16}" maxlength="16" title="Doit contenir exactement 16 chiffres" required>
+                                
+                        <input type="text" id="expiry-date" placeholder="MM/AA" 
+                            pattern="\d{2}\/\d{2}" maxlength="5" title="Doit être au format MM/AA" required>
+                                
+                        <input type="text" id="cvc" placeholder="CVC (3 chiffres)" 
+                            pattern="\d{3}" maxlength="3" title="Doit contenir exactement 3 chiffres" required>
+                    </div>
+
+                    <div id="paypal-fields" class="payment-fields" style="display:none;">
+                        <p>Vous serez redirigé vers PayPal pour finaliser votre achat.</p>
+                        <input type="text" id="paypal-email" placeholder="Email PayPal" 
+                            pattern="[^@]+@[^@]+\.[a-zA-Z]{2,}" 
+                            title="Veuillez entrer une adresse e-mail valide (ex: utilisateur@domaine.com)."
+                            required>
+                    </div>
+                        
+                    <p class="total-final">Total à payer : <strong id="final-total">0.00€</strong></p>
+                        
+                    <div id="payment-actions">
+                        <button type="button" id="back-to-delivery-btn" class="button secondary-button">Retour</button>
+                        <button type="submit" class="button primary-button">Valider la commande</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="confirmation-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" id="close-confirmation-modal">&times;</span>
+                <h2>✅ Commande Validée !</h2>
+                <p>Votre commande a été passée avec succès.</p>
+                <p>Un email de confirmation vous sera envoyé sous peu.</p>
+                <div class="total-final">Total payé : <strong id="final-paid-amount">0.00€</strong></div>
+                <button id="continue-shopping-btn" class="button primary-button" style="width: 100%; margin-top: 20px;">Continuer mes achats</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+
+        <!-- Partie Haut -->
+        <div class="footer-top">
+
+            <!-- Services -->
+            <div class="footer-column">
+                <h3>Services</h3>
+                <a href="service.html#livraison">Livraison</a>
+                <a href="service.html#retour">Retour</a>
+                <a href="service.html#faq">Consulter notre FAQ</a>
+            </div>
+
+            <!-- Centre : Gridwear + réseaux -->
+            <div class="footer-center">
+                <h2 class="footer-logo">Gridwear sur les réseaux</h2>
+
+                <div class="social-icons">
+                    <!-- Facebook -->
+                    <svg viewBox="0 0 24 24" class="icon">
+                        <path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2v-3h2v-2.3c0-2 1.2-3.1 3-3.1
+                        .9 0 1.8.1 1.8.1v2h-1c-1 0-1.3.6-1.3 1.2V12h2.2l-.3 3h-1.9v7A10 10 0 0 0 22 12z"/>
+                    </svg>
+
+                    <!-- Instagram -->
+                    <svg viewBox="0 0 24 24" class="icon">
+                        <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2
+                        c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zm-5 3a5 5 0 1 0 0 10
+                        5 5 0 0 0 0-10zm6.5-.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/>
+                    </svg>
+
+                    <!-- TikTok -->
+                    <svg viewBox="0 0 24 24" class="icon">
+                        <path d="M17 2h3a5 5 0 0 1-5 5v8a7 7 0 1 1-7-7 3 3 0 0 0 3-3v3a4 4 0 1 0 4 4V2z"/>
+                    </svg>
+
+                    <!-- WhatsApp -->
+                    <svg viewBox="0 0 24 24" class="icon">
+                        <path d="M12 2A10 10 0 0 0 2 12c0 1.8.5 3.5 1.3 5L2 22l5-1.3A10 10 0 1 0 12 2zm0 2
+                        a8 8 0 1 1-4.3 14.7l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 0 1 12 4zm4.5 9.5c-.2-.4-.8-.6-1.6-.9s-1-.1-1.3.3l-.6.7
+                        c-.3.3-.5.4-1 .2-.5-.3-2-1-3-2.6-.2-.5 0-.7.2-1l.5-.5c.3-.3.4-.6.3-1L9.3 8c-.1-.4-.5-.9-1-.9H8
+                        c-.3 0-.8.1-1.2.6-.6.6-1 1.7-1 2.5 0 3 2.8 5.7 5.2 6.8 2.2.9 3.1.8 4 .7.7-.2 1.7-.7 2-1.4.2-.5.2-1 .1-1.3z"/>
+                    </svg>
+
+                </div>
+            </div>
+
+            <!-- Gridwear infos -->
+            <div class="footer-column">
+                <h3>Informations</h3>
+                <a href="information.html#qui-sommes-nous">Qui sommes-nous ?</a>
+                <a href="information.html#notre-boutique">Notre boutique</a>
+                <a href="information.html#nous-contacter">Nous contacter</a>
+            </div>
+        </div>
+
+        <!-- Partie Bas -->
+        <div class="footer-bottom">
+            <div class="payment-logos">
+
+                <!-- VISA -->
+                <svg class="pay-icon" viewBox="0 0 48 16">
+                    <path fill="#1A1F71"
+                    d="M17.1 15.6H13.5L15.8.4h3.6l-2.3 15.2z"/>
+                </svg>
+
+                <!-- Mastercard -->
+                <svg class="pay-icon" viewBox="0 0 48 16">
+                    <circle cx="18" cy="8" r="6" fill="#EB001B"/>
+                    <circle cx="30" cy="8" r="6" fill="#F79E1B"/>
+                    <path fill="#FF5F00" d="M24 2a6 6 0 0 0 0 12 6 6 0 0 0 0-12z"/>
+                </svg>
+
+                <!-- PayPal -->
+                <svg class="pay-icon" viewBox="0 0 48 16">
+                    <path fill="#003087"
+                    d="M15 3h-6l-3 10h4l.6-2h3c3 0 5-2 5-4.5S18 3 15 3z"/>
+                </svg>
+
+                <!-- Google Pay -->
+                <svg class="pay-icon" viewBox="0 0 48 16">
+                    <path fill="#34A853" d="M9 4l-3 3 3 3"/>
+                    <path fill="#4285F4" d="M6 7h7"/>
+                </svg>
+
+                <!-- Apple Pay -->
+                <svg class="pay-icon" viewBox="0 0 48 16">
+                    <path fill="currentColor"
+                    d="M16 4c-.7.4-1.2 1.1-1.1 2 .8.1 1.6-.4 2.1-1.2.5-.8.6-1.9-.2-2.6-.8-.1-1.6.4-1.9 1.1zm1.9 3.1c-1.1 
+                    0-1.5.8-2.3.8-.8 0-1-.7-2.1-.7-1.2 0-2.4 1.4-2.4 3.2 0 1.8 1.1 3.7 2.4 3.7.9 0 1.2-.6 2.2-.6 1 
+                    0 1.2.6 2.2.6 1.3 0 2.4-1.8 2.4-3.6 0-2.4-1.4-3.4-2.4-3.4z"/>
+                </svg>
+            </div>
+
+            <div class="legal-links">
+                <a href="regle.html#conditions-de-vente">Conditions de vente</a>
+                <a href="regle.html#politique-de-confidentialite">Politique de confidentialité</a>
+                <a href="regle.html#mentions-legales">Mentions légales</a>
+                <a href="regle.html#preferences-cookies">Préférences cookies</a>
+                <a href="regle.html#glossaire">Glossaire</a>
+                <a href="regle.html#sitographie">Sitographie</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="service.js"></script>
+</body>
+</html>
