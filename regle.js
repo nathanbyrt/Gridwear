@@ -3,16 +3,20 @@ const mots = document.querySelectorAll('.glossaire-mots span');
 const definitions = document.querySelectorAll('.definition-zone p');
 
 mots.forEach(mot => {
-    mot.addEventListener('mouseenter', () => {
-        const data = mot.dataset.mot;
-        definitions.forEach(d => {
-            d.style.display = (d.dataset.mot === data) ? 'block' : 'none';
+    mot.addEventListener('click', () => {
+        const target = mot.dataset.mot;
+
+        mots.forEach(m => m.classList.remove('active'));
+        mot.classList.add('active');
+
+        definitions.forEach(def => {
+            def.classList.toggle('visible', def.dataset.mot === target);
         });
     });
-    mot.addEventListener('mouseleave', () => {
-        definitions.forEach(d => d.style.display = 'none');
-    });
 });
+
+document.querySelector("#glossaire .regle-content")
+        .addEventListener("click", e => e.stopPropagation());
 
 blocks.forEach(block => {
     block.addEventListener('click', () => {
