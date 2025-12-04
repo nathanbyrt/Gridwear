@@ -94,41 +94,65 @@
     color: #111;
 }
 
+/* ====== GLOSSAIRE ====== */
+
 .glossaire-wrapper {
     display: flex;
-    gap: 20px;
+    gap: 25px;
+    margin-top: 15px;
 }
 
+/* Liste des mots */
 .glossaire-mots {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
 }
 
 .glossaire-mots span {
     cursor: pointer;
     color: #111;
-    font-weight: 500;
+    font-weight: 600;
+    font-size: 16px;
+    transition: 0.2s ease-in-out;
 }
 
+.glossaire-mots span:hover {
+    color: #FFD700; 
+}
+
+/* Zone de définition */
 .definition-zone {
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 200px;
-    background-color: #c5c5c5;
+    min-height: 220px;
+    background: #e3e3e3;
     border-radius: 12px;
-    padding: 15px;
+    padding: 20px;
     text-align: center;
 }
 
+/* Définitions masquées par défaut */
 .definition-zone p {
     margin: 0;
-    display: none; 
+    display: none;
     font-weight: 500;
-    color: #111;
+    font-size: 16px;
+    color: #000;
+}
+
+/* Quand un mot est actif → sa définition s'affiche */
+.glossaire-mots span.active {
+    color: #FFD700; 
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.definition-zone p.visible {
+    display: block;
 }
 
 /* ================================
